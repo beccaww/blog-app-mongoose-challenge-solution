@@ -5,6 +5,8 @@ const chaiHttp = require('chai-http');
 const faker = require('faker');
 const mongoose = require('mongoose');
 
+// this makes the should syntax available throughout
+// this module
 const should = chai.should();
 
 const { BlogPost } = require('../models');
@@ -60,11 +62,9 @@ describe('blog posts API resource', function () {
     return closeServer();
   });
 
-
   describe('GET endpoint', function () {
 
     it('should return all existing posts', function () {
-    
       let res;
       return chai.request(app)
         .get('/posts')
@@ -81,7 +81,7 @@ describe('blog posts API resource', function () {
     });
 
     it('should return posts with right fields', function () {
-
+    
       let resPost;
       return chai.request(app)
         .get('/posts')
@@ -108,7 +108,6 @@ describe('blog posts API resource', function () {
   });
 
   describe('POST endpoint', function () {
-    
     it('should add a new blog post', function () {
 
       const newPost = {
@@ -146,7 +145,6 @@ describe('blog posts API resource', function () {
   });
 
   describe('PUT endpoint', function () {
-
     it('should update fields you send over', function () {
       const updateData = {
         title: 'cats cats cats',
@@ -180,7 +178,6 @@ describe('blog posts API resource', function () {
   });
 
   describe('DELETE endpoint', function () {
-    
     it('should delete a post by id', function () {
 
       let post;
